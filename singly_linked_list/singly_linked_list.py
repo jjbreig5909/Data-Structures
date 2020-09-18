@@ -53,23 +53,23 @@ class LinkedList:
             return ret_value
 
     def remove_tail(self):
+        
         if self.head is None:
             return None
         
-        if self.head.get_next_node() == None:
-            ret_value = self.head
+        ret_value = self.tail.get_value()
+
+        if self.head == self.tail:
             self.head = None
             self.tail = None
-            return ret_value.get_value()
 
-        current = self.head
-        prev = current
-        while current.get_next_node() is not None:
-            prev = current
-            current = current.get_next_node()
-        ret_value = current    
-        prev.set_next_node(None)
-        return ret_value.get_value()
+        else:
+            current = self.head
+            while current.get_next_node() is not self.tail:
+                current = current.get_next_node()
+            current.set_next_node(None)
+            self.tail = current  
+        return ret_value
                 
 
             
