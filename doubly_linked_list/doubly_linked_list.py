@@ -162,15 +162,8 @@ class DoublyLinkedList:
         else:
             current_node = self.head
             max_value = current_node.value
-            while current_node.next is not self.tail:
-                print("This is the max, didn't pass if: ", max_value)
+            while current_node is not None:
                 if current_node.value > max_value:
                     max_value = current_node.value
-                    print("This is the max: ", max_value)
                 current_node = current_node.next
-            if self.tail.value>max_value:
-                max_value = self.tail.value
-                return max_value
-                
-            else:
-                return max_value
+            return max_value
